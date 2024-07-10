@@ -32,9 +32,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests((authorizeRequest)->
-                    authorizeRequest
-                            .requestMatchers("/login", "/signup", "/user").permitAll()
-                            .anyRequest().authenticated()
+                        authorizeRequest
+                                .requestMatchers("/login", "/signup", "/user").permitAll()
+                                .anyRequest().authenticated()
                 ) // 3 인증, 인가 설정
                 .formLogin((formLogin)->
                         formLogin
@@ -53,7 +53,7 @@ public class WebSecurityConfig {
     }
 
 
-        //7. 인증 관리자 관련 설정
+    //7. 인증 관리자 관련 설정
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() throws Exception {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
