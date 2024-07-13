@@ -1,5 +1,10 @@
 package com.test.blog.domain;
 
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -21,10 +26,22 @@ public class Article {
 
     @Column(name="content", nullable = false)
     private String content;
+    
+    @Column(name="author", nullable=false)
+    private String author;
 
+    @CreatedDate // 엔티티가 생성될 때 생성 시간 저장
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate // 엔티티가 수정될 때 수정 시간 저장
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+    
     @Builder
-    public Article(String title, String content) {
-        this.title = title;
+    public Article(String author, String title, String content) {
+        this.author = author;
+    	this.title = title;
         this.content = content;
     }
 

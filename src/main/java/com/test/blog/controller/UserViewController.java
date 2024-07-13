@@ -9,7 +9,7 @@ public class UserViewController {
     @GetMapping("/login")
     public String login() {
         System.out.println("로그인하러가자");
-        return "login";
+        return "oauthLogin";
     }
 
     @GetMapping("/signup")
