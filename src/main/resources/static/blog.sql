@@ -26,4 +26,4 @@ create table article (
  );
  
  
- select * from article;
+ select * from users;
